@@ -7,9 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    <?php 
-        echo "hallo";
-        echo "test2"
+    <form action="post.php" method="post">
+        <input type="text" name="name">
+        <input type="submit" value="senden">
+    </form>
+    <?php
+        if(isset($_POST['name'])){
+            echo $_POST['name'];
+        }
     ?>
 </body>
 </html>
