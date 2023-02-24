@@ -3,8 +3,8 @@
 namespace src;
 
 class pdo extends app implements database {
-    public function __construct() {
-        parent::__construct();
+    public function __construct($method = 'getData', $param = 0) {
+        parent::__construct($method, $param);
     }
 
     public function getData($id = 0) {

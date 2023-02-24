@@ -3,9 +3,10 @@
 declare(strict_types=1);
 
 define("DBSQLITE3", "./../data/dbfile.sqlite3");
-echo DBSQLITE3;
+//echo DBSQLITE3;
 
-if(file_exists(DBSQLITE3)){
+/* if(file_exists(DBSQLITE3)){
+    
     //echo "Datei existiert";
 } else {
     //echo "Datei existiert nicht";
@@ -13,7 +14,7 @@ if(file_exists(DBSQLITE3)){
     echo $sqlstring;
     $db = new SQLite3(DBSQLITE3);
     $db->exec($sqlstring);
-}
+} */
 
 use src\Route;
 
@@ -45,23 +46,23 @@ Route::add('/([a-zA-Z0-9]*)', function($class){
     } else {
         echo "Class not found.";
     }
-});
+},['get','post']);
 
 Route::add('/([a-zA-Z0-9]*)/([a-zA-Z0-9]*)', function($class, $method){
     $class = "\\src\\".$class;
-    if(class_exists($class) && method_exists($method)){
+    if(class_exists($class)){
         $app = new $class($method);
     } else {
         echo "Class or Method not found.";
     }
-});
+},['get','post']);
 
 Route::add('/([a-zA-Z0-9]*)/([a-zA-Z0-9]*)/([a-zA-Z0-9]*)', function($class, $method, $param){
     $class = "\\src\\".$class;
-    if(class_exists($class) && method_exists($method) && $param != 0){
+    if(class_exists($class)){
         $app = new $class($method, $param);
     } else {
         echo "Class or Method not found or invalid .";
     }
-});
+},['get','post']);
 Route::run("/");

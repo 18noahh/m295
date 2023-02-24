@@ -6,7 +6,7 @@ namespace src;
 class app
 {
     public $response = array();
-    public function __construct($method = getData, $param = 0)
+    public function __construct($method, $param)
     {
         $this->response["class"] = __CLASS__;
         $this->response["implements"] = class_implements($this);
