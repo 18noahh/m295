@@ -1,0 +1,21 @@
+{
+    "name": "noahw/com_app",
+    "autoload": {
+        "psr-4": {
+            "Noahw\\ComApp\\": "lib/",
+            "src\\" : "src/",
+            "APP\\" : "APP/",
+            "src\\" : "src/"
+
+        }
+    },
+    "authors": [
+        {
+            "name": "18noahh",
+            "email": "noahrafael.wyss@edu.gbssg.ch"
+        }
+    ],
+    "require": {
+        "vlucas/valitron": "^1.4"
+    }
+}
